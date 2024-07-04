@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboSpeaker</title>
+</head>
+<body>
+    <h1>Welcome to RoboSpeaker</h1>
+    <form id="speakForm" method="post">
+        {% csrf_token %}
+        <label for="text">Enter something to speak:</label>
+        <input type="text" id="text" name="text" required>
+        <button type="submit">Speak</button>
+    </form>
+    {% comment %} <script>
+        document.getElementById('speakForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Text has been spoken');
+                }
+            });
+        });
+    </script> {% endcomment %}
+</body>
+</html>
